@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import * as xy from '../xyview'
+import * as xy from '../index.js'
 Vue.use(xy.install)
 
 Vue.config.productionTip = false
