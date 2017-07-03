@@ -1,40 +1,21 @@
 # xyview
 
-> A Vue.js project
+> vue2的UI插件,适合vue-cli创建的项目. 安装需要git客户端
 
-## Build Setup
+> 配置scss
 
-``` bash
-# install dependencies
-npm install
+    npm i node-sass --save-dev
+    npm i sass-loader --save-dev
 
-# serve with hot reload at localhost:8080
-npm run dev
+> 安装
 
-# build for production with minification
-npm run build
+     npm i crossgit/xyview -save
 
-# build for production and view the bundle analyzer report
-npm run build --report
+> 引入与使用,在main.js加入
 
-# run unit tests
-npm run unit
+    import * as xy from 'xyview' 
+    Vue.use(xy.install)
 
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-
-## 安装,先保证有git客户端
-
-    npm i crossgit/xyview -S
-    npm install https://github.com/crossgit/xyview.git --save
-
-## 使用
-* 引入
-* 调用
+ > 更多查看src目录中的项目实例.
+ 
+ 请不要更改代码,提交的代码都不会通过.
