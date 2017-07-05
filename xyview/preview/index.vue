@@ -86,6 +86,7 @@ export default {
                 tapToClose: true,
                 fullscreenEl: false,
                 index: index,
+                errorMsg:'<div class="pswp__error-msg"> 图片加载失败.</div>',
                 getThumbBoundsFn(index) {
                     // find thumbnail element
                     // let thumbnail = document.querySelectorAll('.previewer-demo-img')[index];  
@@ -120,11 +121,7 @@ export default {
             this.photoswipe.close()
         }
     },
-    props: {
-        // list: {
-        //     type: Array,
-        //     required: true
-        // },
+    props: { 
         index: {
             type: Number,
             default: 0

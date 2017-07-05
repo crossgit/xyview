@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: 'xyBtnStyle',
+    name: 'xy-btn-style',
     props:["val"]
 }
 </script>
