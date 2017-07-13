@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import preview from '@/components/preview'
 import xyheader from '@/components/header'
+import swiper from '@/components/pswiper'
 Vue.use(Router)
 
 export default new Router({
@@ -11,7 +12,7 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
-    },{
+    }, {
       path: '/preview',
       name: 'preview',
       component: preview
@@ -20,6 +21,11 @@ export default new Router({
       path: '/headerbar',
       name: 'headerbar',
       component: xyheader
+    },
+    {
+      path: '/swiper',
+      name: 'swiper',
+      component: swiper
     }
   ]
 })
