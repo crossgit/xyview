@@ -1,5 +1,6 @@
 <template>
     <div id="swiper">
+        <xy-loading :text="num" v-if="num>0 && num <100"></xy-loading>
         <xy-swiper :list="demo01_list" v-model="demo02_index" @on-index-change="demo01_onIndexChange"></xy-swiper>
         <br>
         <xy-swiper :list="demo02_list" style="width:85%;margin:0 auto;" :aspect-ratio="300/800" dots-position="center"></xy-swiper>
@@ -10,7 +11,7 @@
             </xy-swiper-item>
         </xy-swiper>
         <br>
-        <!-- <xy-swiper auto height="30px" direction="vertical" :interval=2000 class="text-scroll" :show-dots="false">
+        <xy-swiper auto height="30px" direction="vertical" :interval=2000 class="text-scroll" :show-dots="false">
             <xy-swiper-item>
                 <p>义务爱了 完成传奇世界H5-王者归来任务 获得20金币</p>
             </xy-swiper-item>
@@ -20,7 +21,7 @@
             <xy-swiper-item>
                 <p>零哥章魚 完成传奇世界H5-王者归来任务 获得30金币</p>
             </xy-swiper-item>
-            <xy-<swiper-item>
+            <xy-swiper-item>
                 <p>做迎而為 兑换【饿了么】畅享美食红包 消耗20金币</p>
             </xy-swiper-item>
             <xy-swiper-item>
@@ -29,7 +30,7 @@
             <xy-swiper-item>
                 <p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p>
             </xy-swiper-item>
-        </xy-swiper> -->
+        </xy-swiper>
     </div>
 </template>
 <script>
@@ -62,7 +63,8 @@ const urlList = baseList.map((item, index) => ({
 
 const demoList = imgList.map((one, index) => ({
     url: 'javascript:',
-    img: one
+    img: one,
+    title: index + '....'
 }))
 
 const only2ClickList = baseList.slice(0, 2).map(item => {
@@ -109,7 +111,8 @@ export default {
             demo05_index: 0,
             demo06_index: 0,
             demo07_index: 0,
-            swiperItemIndex: 1
+            swiperItemIndex: 1,
+            num: 10,
         }
     }
 }

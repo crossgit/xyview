@@ -277,7 +277,7 @@ export default {
           bottom: 0;
           height: 1.4em;
           font-size: 16px;
-          padding: 20px 50px 12px 13px;
+          // padding: 20px 50px 12px 13px;
           margin: 0;
           background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           color: #fff;

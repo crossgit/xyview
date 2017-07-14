@@ -3,8 +3,9 @@ import xyPreview from './preview'
 import xyHeader from './headerBar'
 import xyPrompt from './promptList'
 import xyButtonTab from './buttonTab/buttonTab'
-import xyButtonTabItem from './buttonTab/buttonTabItem' 
-import xySwiper from './swiper/swiper' 
+import xyButtonTabItem from './buttonTab/buttonTabItem'
+import xyLoading from './loading'
+import xySwiper from './swiper/swiper'
 import xySwiperItem from './swiper/swiperItem'
 import xyTab from './tab/tab'
 import xyTabItem from './tab/tabItem'
@@ -18,6 +19,7 @@ const install = function (Vue) {
     Vue.component(xyPrompt.name, xyPrompt);
     Vue.component(xyButtonTab.name, xyButtonTab);
     Vue.component(xyButtonTabItem.name, xyButtonTabItem);
+    Vue.component(xyLoading.name, xyLoading);
     Vue.component(xySwiper.name, xySwiper);
     Vue.component(xySwiperItem.name, xySwiperItem);
     Vue.component(xyTab.name, xyTab);
@@ -37,6 +39,7 @@ export {
     xyPrompt,
     xyButtonTab,
     xyButtonTabItem,
+    xyLoading,
     xySwiper,
     xySwiperItem,
     xyTab,
