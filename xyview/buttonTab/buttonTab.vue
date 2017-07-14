@@ -46,14 +46,14 @@ export default {
             color: #fff;
             background: #1ab99a;//#ffe26d;
         }
-        &.xy-btn-tab-item-first {
-            border-top-left-radius: 32px;
-            border-bottom-left-radius: 32px;
-        } 
-        &.xy-btn-tab-item-last {
-            border-top-right-radius: 32px;
-            border-bottom-right-radius: 32px;
-        }
+        // &.xy-btn-tab-item-first {
+        //     border-top-left-radius: 32px;
+        //     border-bottom-left-radius: 32px;
+        // } 
+        // &.xy-btn-tab-item-last {
+        //     border-top-right-radius: 32px;
+        //     border-bottom-right-radius: 32px;
+        // }
         &.xy-btn-tab-item-middle:after {
             border-right: 1px solid #ccc;
             border-top: 1px solid #ccc;
@@ -77,8 +77,8 @@ export default {
         }
         &.xy-btn-tab-item-first:after {
             border: 1px solid #ccc;
-            border-top-left-radius: 32px;
-            border-bottom-left-radius: 32px;
+            // border-top-left-radius: 32px;
+            // border-bottom-left-radius: 32px;
         }
         &.xy-btn-tab-item-middle:after {
             border-right: 1px solid #ccc;
@@ -103,8 +103,8 @@ export default {
             transform-origin: left top;
             -webkit-transform: scale(.5);
             transform: scale(.5);
-            border-top-right-radius: 32px;
-            border-bottom-right-radius: 32px;
+            // border-top-right-radius: 32px;
+            // border-bottom-right-radius: 32px;
         }
     }
 }
