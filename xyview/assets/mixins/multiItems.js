@@ -1,20 +1,20 @@
 import { go } from '../libs/router'
 
 const parentMixin = {
-  mounted: function() {
+  mounted () {
     if (this.value >= 0) {
       this.currentIndex = this.value
     }
     this.updateIndex()
   },
   methods: {
-    updateIndex :function() {
+    updateIndex () {
       if (!this.$children || !this.$children.length) return
       this.number = this.$children.length
-      var cld = this.$children
-      for (let i = 0; i < cld.length; i++) {
-        cld[i].currentIndex = i
-        if (cld[i].currentSelected) {
+      let children = this.$children
+      for (let i = 0; i < children.length; i++) {
+        children[i].currentIndex = i
+        if (children[i].currentSelected) {
           this.index = i
         }
       }
@@ -36,7 +36,7 @@ const parentMixin = {
       this.index = val
     }
   },
-  data :function() {
+  data () {
     return {
       index: -1,
       currentIndex: this.index,
@@ -52,10 +52,10 @@ const childMixin = {
       default: false
     }
   },
-  mounted :function() {
+  mounted () {
     this.$parent.updateIndex()
   },
-  beforeDestroy :function() {
+  beforeDestroy () {
     const $parent = this.$parent
     this.$nextTick(() => {
       $parent.updateIndex()
@@ -85,7 +85,7 @@ const childMixin = {
       this.currentSelected = val
     }
   },
-  data :function() {
+  data () {
     return {
       currentIndex: -1,
       currentSelected: this.selected
