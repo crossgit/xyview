@@ -11,10 +11,10 @@ const parentMixin = {
     updateIndex :function() {
       if (!this.$children || !this.$children.length) return
       this.number = this.$children.length
-      let children = this.$children
-      for (let i = 0; i < children.length; i++) {
-        children[i].currentIndex = i
-        if (children[i].currentSelected) {
+      let cld = this.$children
+      for (let i = 0; i < cld.length; i++) {
+        cld[i].currentIndex = i
+        if (cld[i].currentSelected) {
           this.index = i
         }
       }
