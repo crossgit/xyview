@@ -1,7 +1,7 @@
 import { go } from '../libs/router'
 
 const parentMixin = {
-  mounted () {
+  mounted: function() {
     if (this.value >= 0) {
       this.currentIndex = this.value
     }
