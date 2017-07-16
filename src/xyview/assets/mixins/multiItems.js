@@ -8,7 +8,7 @@ const parentMixin = {
     this.updateIndex()
   },
   methods: {
-    updateIndex () {
+    updateIndex :function() {
       if (!this.$children || !this.$children.length) return
       this.number = this.$children.length
       let children = this.$children
@@ -36,7 +36,7 @@ const parentMixin = {
       this.index = val
     }
   },
-  data () {
+  data :function() {
     return {
       index: -1,
       currentIndex: this.index,
@@ -52,10 +52,10 @@ const childMixin = {
       default: false
     }
   },
-  mounted () {
+  mounted :function() {
     this.$parent.updateIndex()
   },
-  beforeDestroy () {
+  beforeDestroy :function() {
     const $parent = this.$parent
     this.$nextTick(() => {
       $parent.updateIndex()
@@ -85,7 +85,7 @@ const childMixin = {
       this.currentSelected = val
     }
   },
-  data () {
+  data :function() {
     return {
       currentIndex: -1,
       currentSelected: this.selected
