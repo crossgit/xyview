@@ -10,7 +10,6 @@
 
 <script>
 import { childMixin } from '../assets/mixins/multiItems';
-import { go } from '../assets/mixins/multiItems';
 export default {
   name:'xyButtonTabItem',
   mixins: [childMixin],
