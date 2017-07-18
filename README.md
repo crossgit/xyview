@@ -39,6 +39,7 @@
 ----|----|----|----
 address|7.3-7.8|*未完成示例*|地址
 badge|7.3-7.8|*未完成示例*|标记 
+xyDivider|7.18|**已完成**|分割线
 xyHeader|7.3-7.8|**已完成**|头,不如用mui的header
 xyButtonTab\|xyButtonTabItem|7.16|**已完成**|按钮组
 checker|7.3-7.8|*未完成示例*|多选

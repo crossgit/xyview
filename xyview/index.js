@@ -1,5 +1,6 @@
 import xyAddress from './address'
 import xyBtnStyle from './button'
+import xyDivider from './divider'
 import xyPreview from './preview'
 import xyHeader from './headerBar'
 import xyPrompt from './promptList'
@@ -16,8 +17,9 @@ import xyTimelineItem from './timeline/timelineItem'
 const install = function (Vue) {
     if (install.installed) return;
 
-    Vue.component(xyAddress.name, xyAddress);
+    Vue.component(xyAddress.name, xyAddress); 
     Vue.component(xyBtnStyle.name, xyBtnStyle);
+    Vue.component(xyDivider.name, xyDivider);
     Vue.component(xyPreview.name, xyPreview);
     Vue.component(xyHeader.name, xyHeader);
     Vue.component(xyPrompt.name, xyPrompt);
@@ -41,6 +43,7 @@ export {
 
     xyAddress,
     xyBtnStyle,
+    xyDivider,
     xyPreview,
     xyHeader,
     xyPrompt,
