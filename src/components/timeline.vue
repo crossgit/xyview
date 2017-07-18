@@ -21,7 +21,7 @@
     
             </xy-timeline-item>
         </xy-timeline>
-    
+    <xy-divider>-</xy-divider>
         <xy-timeline>
             <xy-timeline-item v-for="(i, index) in count" :key="index">
                 <h4 :class="[i === 0 ? 'recent' : '']">Timeline Node {{i + 1}}</h4>

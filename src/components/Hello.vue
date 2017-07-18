@@ -29,6 +29,8 @@ export default {
         { url: '/headerbar', title: '按钮组' },
         { url: '/swiper', title: '左右上下滚动' },
         { url: '/address', title: '地址' },
+        { url: '/timeline', title: '时间轴' },
+        { url: '/upload', title: '图片上传' },
       ]
     }
   }

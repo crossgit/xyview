@@ -7,6 +7,7 @@ import xyheader from '@/components/header'
 import swiper from '@/components/pswiper'
 import address from '@/components/address'
 import timeline from '@/components/timeline'
+import upload from '@/components/upload'
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +17,7 @@ export default new Router({
     { path: '/headerbar', name: 'headerbar', component: xyheader },
     { path: '/swiper', name: 'swiper', component: swiper },
     { path: '/address', name: 'address', component: address },
-    { path: '/timeline', name: 'timeline', component: timeline }
+    { path: '/timeline', name: 'timeline', component: timeline },
+    { path: '/upload', name: 'upload', component: upload }
   ]
 })

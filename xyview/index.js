@@ -13,7 +13,7 @@ import xyTab from './tab/tab'
 import xyTabItem from './tab/tabItem'
 import xyTimeline from './timeline/timeline'
 import xyTimelineItem from './timeline/timelineItem'
-
+import xyImageUpload from './upload'
 const install = function (Vue) {
     if (install.installed) return;
 
@@ -32,6 +32,7 @@ const install = function (Vue) {
     Vue.component(xyTabItem.name, xyTabItem);
     Vue.component(xyTimeline.name, xyTimeline);
     Vue.component(xyTimelineItem.name, xyTimelineItem);
+    Vue.component(xyImageUpload.name, xyImageUpload);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -55,5 +56,6 @@ export {
     xyTab,
     xyTabItem,
     xyTimeline,
-    xyTimelineItem
+    xyTimelineItem,
+    xyImageUpload
 };
