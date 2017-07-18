@@ -1,3 +1,4 @@
+import xyAddress from './address'
 import xyBtnStyle from './button'
 import xyPreview from './preview'
 import xyHeader from './headerBar'
@@ -9,10 +10,13 @@ import xySwiper from './swiper/swiper'
 import xySwiperItem from './swiper/swiperItem'
 import xyTab from './tab/tab'
 import xyTabItem from './tab/tabItem'
+import xyTimeline from './timeline/timeline'
+import xyTimelineItem from './timeline/timelineItem'
 
 const install = function (Vue) {
     if (install.installed) return;
 
+    Vue.component(xyAddress.name, xyAddress);
     Vue.component(xyBtnStyle.name, xyBtnStyle);
     Vue.component(xyPreview.name, xyPreview);
     Vue.component(xyHeader.name, xyHeader);
@@ -24,6 +28,8 @@ const install = function (Vue) {
     Vue.component(xySwiperItem.name, xySwiperItem);
     Vue.component(xyTab.name, xyTab);
     Vue.component(xyTabItem.name, xyTabItem);
+    Vue.component(xyTimeline.name, xyTimeline);
+    Vue.component(xyTimelineItem.name, xyTimelineItem);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -33,6 +39,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
     install,
 
+    xyAddress,
     xyBtnStyle,
     xyPreview,
     xyHeader,
@@ -43,5 +50,7 @@ export {
     xySwiper,
     xySwiperItem,
     xyTab,
-    xyTabItem
+    xyTabItem,
+    xyTimeline,
+    xyTimelineItem
 };
