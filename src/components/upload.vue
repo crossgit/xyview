@@ -11,7 +11,7 @@
         </div>
         <div class="album">
             <label for="img-upload">选择照片</label>
-            <xy-image-upload :img-arr.sync="imgList"></xy-image-upload>
+            <xy-image-upload :img-arr.sync="imgList" :b-scale="scale"></xy-image-upload>
             <input type="button" value="上传" @click="uploadimg">
         </div>
     </div>
@@ -22,7 +22,8 @@ export default {
         return {
             imgList: [
                 { src: require('../assets/logo.png') }
-            ]
+            ],
+            scale:false
         }
     },
     methods: {

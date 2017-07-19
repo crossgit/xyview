@@ -31,6 +31,7 @@ export default {
         { url: '/address', title: '地址' },
         { url: '/timeline', title: '时间轴' },
         { url: '/upload', title: '图片上传' },
+        { url: '/actionsheet', title: '弹出选择' },
       ]
     }
   }

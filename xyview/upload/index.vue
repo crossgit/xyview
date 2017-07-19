@@ -17,7 +17,12 @@ export default {
         imgNumLimit: {//一次最多可以上传多少张照片
             type: Number,
             default: 8
-        }
+        },
+        bScale: { // 是否压缩
+            type: Boolean,
+            default: true
+        },
+
     },
     methods: {
         uploadImg: function (e) {
@@ -73,9 +78,12 @@ export default {
                                         break;
                                 }
                             }
+                            // 如果图片大于1M,就把图片宽高缩小到1/4
                             base64 = canvas.toDataURL("image/jpeg", 0.8);
                             if (fileList[i].size / 1024000 > 1) {
-                                _this.imgScale(base64, 4)
+                                if (_this.bScale) {
+                                    _this.imgScale(base64, 4)
+                                }
                             } else {
                                 _this.imgArr.push({ "src": base64 });
                             }

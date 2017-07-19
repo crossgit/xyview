@@ -1,3 +1,4 @@
+import xyActionSheet from './actionSheet'
 import xyAddress from './address'
 import xyBtnStyle from './button'
 import xyDivider from './divider'
@@ -17,6 +18,7 @@ import xyImageUpload from './upload'
 const install = function (Vue) {
     if (install.installed) return;
 
+    Vue.component(xyActionSheet.name, xyActionSheet); 
     Vue.component(xyAddress.name, xyAddress); 
     Vue.component(xyBtnStyle.name, xyBtnStyle);
     Vue.component(xyDivider.name, xyDivider);
@@ -42,6 +44,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
     install,
 
+    xyActionSheet,
     xyAddress,
     xyBtnStyle,
     xyDivider,
