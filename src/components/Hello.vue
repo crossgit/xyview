@@ -32,6 +32,10 @@ export default {
         { url: '/timeline', title: '时间轴' },
         { url: '/upload', title: '图片上传' },
         { url: '/actionsheet', title: '弹出选择' },
+        { url: '/picker', title: 'picker' },
+        { url: '/popup', title: 'popup' },
+        { url: '/scoller', title: '滑动' },
+        { url: '/datetime', title: '日期时间' },
       ]
     }
   }

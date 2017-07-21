@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Hello from '@/components/Hello'
-import preview from '@/components/preview'
-import xyheader from '@/components/header'
-import swiper from '@/components/pswiper'
-import address from '@/components/address'
-import timeline from '@/components/timeline'
-import upload from '@/components/upload'
-import actionsheet from '@/components/actionsheet'
+import Hello from '@/Hello'
+import preview from '@/preview'
+import xyheader from '@/header'
+import swiper from '@/pswiper'
+import address from '@/address'
+import timeline from '@/timeline'
+import upload from '@/upload'
+import actionsheet from '@/actionsheet'
+import picker from '@/picker'
+import popup from '@/popup'
+import scoller from '@/scoller'
+import datetime from '@/datetime'
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +24,10 @@ export default new Router({
     { path: '/address', name: 'address', component: address },
     { path: '/timeline', name: 'timeline', component: timeline },
     { path: '/upload', name: 'upload', component: upload },
-    { path: '/actionsheet', name: 'actionsheet', component: actionsheet }
+    { path: '/actionsheet', name: 'actionsheet', component: actionsheet },
+    { path: '/picker', name: 'picker', component: picker },
+    { path: '/popup', name: 'popup', component: popup },
+    { path: '/scoller', name: 'scoller', component: scoller },
+    { path: '/datetime', name: 'datetime', component: datetime },
   ]
 })

@@ -112,7 +112,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: #000;
-    opacity: .5;
+    opacity: .2;
     position: fixed;
     display: none;
     z-index: 998;
