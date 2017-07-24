@@ -5,7 +5,7 @@
 <script>
 import Datetime from '../datetime'
 import Picker from '../datetime/datetimepicker'
-import objectAssign from 'object-assign'
+// import objectAssign from 'object-assign'
 
 export default {
   extends: Datetime,
@@ -13,7 +13,7 @@ export default {
     render () {
       this.$nextTick(() => {
         this.picker && this.picker.destroy()
-        this.picker = new Picker(objectAssign(this.pickerOptions, {
+        this.picker = new Picker(Object.assign(this.pickerOptions, {
           renderInline: true
         }))
         this.picker.show()

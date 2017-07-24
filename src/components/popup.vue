@@ -9,9 +9,11 @@
       <button title="Popup address" @click="btnshow6">Popup address</button>
       <button title="default max-height=100%" @click="btnshow12">default max-height 100%</button>
       <button title="set max-height=50%" @click="btnshow13">set max-height=50%</button>
+      <button title="address" @click="btnAddress">address</button>
+      <button title="mydate" @click="btnMydate">mydate</button>
     </div>
   
-  <!--基本情况 Default popup -->
+    <!--基本情况 Default popup -->
     <div v-transfer-dom>
       <xy-popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
         <div class="popup0">
@@ -24,7 +26,7 @@
     </div>
   
     <!-- <toast @click="btnshowToast">You did it!</toast> -->
-  <!--全屏的 Full popup -->
+    <!--全屏的 Full popup -->
     <div v-transfer-dom>
       <xy-popup v-model="show1" height="100%">
         <div class="popup1">
@@ -34,8 +36,8 @@
         </div>
       </xy-popup>
     </div>
-  <!--可以滚动的  -->
-     <div v-transfer-dom>
+    <!--可以滚动的  -->
+    <div v-transfer-dom>
       <xy-popup v-model="show2" height="200px" @on-first-show="resetScroller">
         <xy-scroller height="200px" lock-x style="border:1px solid red;" ref="scroller">
           <div>
@@ -43,9 +45,8 @@
           </div>
         </xy-scroller>
       </xy-popup>
-    </div> 
+    </div>
   
-
     <div v-transfer-dom>
       <xy-popup v-model="show3">
         <div class="popup2">
@@ -81,36 +82,36 @@
     </div>
   
     <!-- <div v-transfer-dom>
-      <xy-popup v-model="show6">
-        <div class="popup1">
-          <div>
-            <button title="Popup address" @click="btnshow6"></button>
-          </div>
-          <div>
-            <x-address :title="title6" v-model="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder" :popup-style="{zIndex: 502}"></x-address>
-          </div>
-        </div>
-      </xy-popup>
-    </div> -->
+                        <xy-popup v-model="show6">
+                          <div class="popup1">
+                            <div>
+                              <button title="Popup address" @click="btnshow6"></button>
+                            </div>
+                            <div>
+                              <x-address :title="title6" v-model="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder" :popup-style="{zIndex: 502}"></x-address>
+                            </div>
+                          </div>
+                        </xy-popup>
+                      </div> -->
   
     <div>
       <button title="transparent background" @click="btnshow7"></button>
     </div>
   
     <!-- <div v-transfer-dom>
-      <xy-popup v-model="show7" height="270px" is-transparent>
-        <div style="width: 95%;background-color:#fff;height:250px;margin:0 auto;border-radius:5px;padding-top:10px;">
-          <div>
-            <cell title="Product" value="Donate"></cell>
-            <cell title="Total" value="$10.24"></cell>
-          </div>
-          <div style="padding:20px 15px;">
-            <x-button type="primary">Pay</x-button>
-            <x-button @click.native="show7 = false">Cancel</x-button>
-          </div>
-        </div>
-      </xy-popup>
-    </div> -->
+                        <xy-popup v-model="show7" height="270px" is-transparent>
+                          <div style="width: 95%;background-color:#fff;height:250px;margin:0 auto;border-radius:5px;padding-top:10px;">
+                            <div>
+                              <cell title="Product" value="Donate"></cell>
+                              <cell title="Total" value="$10.24"></cell>
+                            </div>
+                            <div style="padding:20px 15px;">
+                              <x-button type="primary">Pay</x-button>
+                              <x-button @click.native="show7 = false">Cancel</x-button>
+                            </div>
+                          </div>
+                        </xy-popup>
+                      </div> -->
   
     <div title="set position">
       <button title="left(100% width)" @click="btnshow8"></button>
@@ -149,28 +150,41 @@
         </div>
       </xy-popup>
     </div>
-  
-    <!-- <div v-transfer-dom>
-      <xy-popup v-model="show12" position="bottom">
-        <div>
-          <cell v-for="i in 20" :key="i" :title="i"></cell>
-        </div>
-        <div style="padding: 15px;">
-          <x-button @click.native="show12 = false" plain type="primary"> Close Me </x-button>
+    <div v-transfer-dom>
+      <xy-popup v-model="address" position="bottom">
+        <div class="position-vertical-address">
+          <xy-picker :data='year7' :fixed-columns="3" :columns=3 v-model='year7Value' @on-change='change' show-name></xy-picker>
         </div>
       </xy-popup>
-    </div> -->
-  
-    <!-- <div v-transfer-dom>
-      <xy-popup v-model="show13" position="bottom" max-height="50%">
-        <div>
-          <cell v-for="i in 20" :key="i" :title="i"></cell>
-        </div>
-        <div style="padding: 15px;">
-          <x-button @click.native="show13 = false" plain type="primary"> Close Me </x-button>
+    </div>
+    <div v-transfer-dom>
+      <xy-popup v-model="mydate" position="bottom">
+        <div class="position-vertical-mydate">
+          <xy-picker :data='year8' :fixed-columns="3" :columns=3 v-model='year8Value' @on-change='change'></xy-picker>
         </div>
       </xy-popup>
-    </div> -->
+    </div>
+    <!-- <div v-transfer-dom>
+                        <xy-popup v-model="show12" position="bottom">
+                          <div>
+                            <cell v-for="i in 20" :key="i" :title="i"></cell>
+                          </div>
+                          <div style="padding: 15px;">
+                            <x-button @click.native="show12 = false" plain type="primary"> Close Me </x-button>
+                          </div>
+                        </xy-popup>
+                      </div> -->
+  
+    <!-- <div v-transfer-dom>
+                        <xy-popup v-model="show13" position="bottom" max-height="50%">
+                          <div>
+                            <cell v-for="i in 20" :key="i" :title="i"></cell>
+                          </div>
+                          <div style="padding: 15px;">
+                            <x-button @click.native="show13 = false" plain type="primary"> Close Me </x-button>
+                          </div>
+                        </xy-popup>
+                      </div> -->
   
   </div>
 </template>
@@ -200,8 +214,77 @@ export default {
       show10: false,
       show11: false,
       show12: false,
-      show13: false
+      show13: false,
+      address: false,
+      year7: [{
+        name: '中国',
+        value: 'china',
+        parent: 0
+      }, {
+        name: '美国',
+        value: 'USA',
+        parent: 0
+      }, {
+        name: '广东',
+        value: 'china001',
+        parent: 'china'
+      }, {
+        name: '广西',
+        value: 'china002',
+        parent: 'china'
+      }, {
+        name: '美国001',
+        value: 'usa001',
+        parent: 'USA'
+      }, {
+        name: '美国002',
+        value: 'usa002',
+        parent: 'USA'
+      }, {
+        name: '广州',
+        value: 'gz',
+        parent: 'china001'
+      }, {
+        name: '深圳',
+        value: 'sz',
+        parent: 'china001'
+      }, {
+        name: '广西001',
+        value: 'gz',
+        parent: 'china002'
+      }, {
+        name: '广西002',
+        value: 'sz',
+        parent: 'china002'
+      }, {
+        name: '美国001_001',
+        value: '0003',
+        parent: 'usa001'
+      }, {
+        name: '美国001_002',
+        value: '0004',
+        parent: 'usa001'
+      }, {
+        name: '美国002_001',
+        value: '0005',
+        parent: 'usa002'
+      }, {
+        name: '美国002_002',
+        value: '0006',
+        parent: 'usa002'
+      }],
+      year7Value: [],
+
+      mydate: false,
+      year8: [
+        { name: '20170102', value: '001', parent: 0 },
+        { name: '20170102', value: '001', parent: 0 },
+        { name: '20170102', value: '001', parent: 0 },
+
+      ],
+      year8Value: [],
     }
+
   },
   methods: {
     resetScroller() {
@@ -254,7 +337,15 @@ export default {
     btnshow13() {
       this.show13 = !this.show13
     },
-
+    btnAddress() {
+      this.address = !this.address
+    },
+    change(value) {
+      console.log('选择的地区', value)
+    },
+    btnMydate() {
+      this.mydate = !this.mydate;
+    }
   },
   watch: {
     show10(val) {
@@ -277,8 +368,8 @@ export default {
   color: #999;
   width: 24px;
   height: 24px;
-  :before,
-  :after {
+   :before,
+   :after {
     content: '';
     position: absolute;
     left: 0;
@@ -288,7 +379,7 @@ export default {
     background-color: currentColor;
     transform: rotate(-45deg);
   }
-  :after {
+   :after {
     transform: rotate(45deg);
   }
 }
@@ -325,6 +416,12 @@ export default {
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(4);
     color: #000;
+  }
+  .position-vertical-demo {
+    background-color: #ffe26d;
+    color: #000;
+    text-align: center;
+    padding: 15px;
   }
 }
 </style>
