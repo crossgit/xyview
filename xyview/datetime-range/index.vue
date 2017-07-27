@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import value2name from '../../filters/value2name'
+import value2name from '../assets/filters/value2name'
 import PopupPicker from '../popup-picker'
-import getDateRange from '../../tools/date/range'
-import getNumberRange from '../../tools/number/range'
+import getDateRange from '../assets/tools/date/range'
+import getNumberRange from '../assets/tools/number/range'
 
 export default {
-  name: 'datetime-range',
+  name: 'xyDatetimeRange',
   components: {
     PopupPicker
   },

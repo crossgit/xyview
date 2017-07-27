@@ -1,10 +1,10 @@
 <template>
     <div>
-        <input type="file" style="display: none;" id="img-upload" multiple accept="image/*" @change="uploadImg($event)" />
+        <input type="file" style="display: none;" id="img-upload" accept="image/*" @change="uploadImg($event)" />
     </div>
 </template>
 <script>
-// exif 识别图片反正,IE10以下不支持
+// exif 识别图片反正,IE10以下不支持 multiple
 import EXIF from 'exif-js'
 export default {
     name: 'xyImageUpload',

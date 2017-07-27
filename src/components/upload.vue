@@ -29,6 +29,7 @@ export default {
     methods: {
         uploadimg: function () {
             console.log(JSON.stringify(this.imgList)); 
+            console.log(this.imgList);
         }
     }
 }

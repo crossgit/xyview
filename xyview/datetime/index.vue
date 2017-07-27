@@ -1,10 +1,5 @@
 <template>
-  <a
-  class="xy-datetime weui-cell"
-  :class="{'weui-cell_access': !readonly}"
-  :data-cancel-text="$t('cancel_text')"
-  :data-confirm-text="$t('confirm_text')"
-  href="javascript:">
+  <a class="xy-datetime weui-cell" :class="{'weui-cell_access': !readonly}" :data-cancel-text="cancel_text" :data-confirm-text="confirm_text" href="javascript:">
     <slot>
       <div>
         <slot name="title">
@@ -19,31 +14,22 @@
     </slot>
   </a>
 </template>
-
-<i18n>
-cancel_text:
-  en: cancel
-  zh-CN: 取消
-confirm_text:
-  en: done
-  zh-CN: 确定
-</i18n>
-
+ 
 <script>
-import Icon from '../icon'
+// import Icon from '../icon'
 import Picker from './datetimepicker'
-import Group from '../group'
+// import Group from '../group'
 import InlineDesc from '../inline-desc'
-import Uuid from '../../mixins/uuid'
-import format from '../../tools/date/format'
+import Uuid from '../assets/mixins/uuid'
+import format from '../assets/tools/date/format'
 
 export default {
-  name: 'datetime',
+  name: 'xyDatetime',
   mixins: [Uuid],
   components: {
-    Group,
+    // Group,
     InlineDesc,
-    Icon
+    // Icon
   },
   props: {
     format: {
@@ -104,18 +90,20 @@ export default {
     show: Boolean,
     defaultSelectedValue: String
   },
-  created () {
+  created() {
     this.isFirstSetValue = false
     this.currentValue = this.value
   },
-  data () {
+  data() {
     return {
       currentValue: null,
       valid: true,
-      errors: {}
+      errors: {},
+      cancel_text: '取消',
+      confirm_text: '确定'
     }
   },
-  mounted () {
+  mounted() {
     const uuid = this.uuid
     this.$el.setAttribute('id', `xy-datetime-${uuid}`)
     if (!this.readonly) {
@@ -125,14 +113,14 @@ export default {
     }
   },
   computed: {
-    _value () {
+    _value() {
       if (!this.currentValue) {
         return this.placeholder || ''
       } else {
         return this.displayFormat ? this.displayFormat(this.currentValue) : this.currentValue
       }
     },
-    pickerOptions () {
+    pickerOptions() {
       const _this = this
       const options = {
         trigger: '#xy-datetime-' + this.uuid,
@@ -154,24 +142,24 @@ export default {
         hourList: this.hourList,
         minuteList: this.minuteList,
         defaultSelectedValue: this.defaultSelectedValue,
-        onSelect (type, val, wholeValue) {
+        onSelect(type, val, wholeValue) {
           if (_this.picker && _this.picker.config.renderInline) {
             _this.$emit('input', wholeValue)
             _this.$emit('on-change', wholeValue)
           }
         },
-        onConfirm (value) {
+        onConfirm(value) {
           _this.currentValue = value
         },
-        onClear (value) {
+        onClear(value) {
           _this.$emit('on-clear', value)
         },
-        onHide () {
+        onHide() {
           _this.$emit('update:show', false)
           _this.validate()
           _this.$emit('on-hide')
         },
-        onShow () {
+        onShow() {
           _this.$emit('update:show', true)
           _this.$emit('on-show')
         }
@@ -184,13 +172,13 @@ export default {
       }
       return options
     },
-    firstError () {
+    firstError() {
       let key = Object.keys(this.errors)[0]
       return this.errors[key]
     }
   },
   methods: {
-    getButtonText (type) {
+    getButtonText(type) {
       if (type === 'cancel' && this.cancelText) {
         return this.cancelText
       } else if (type === 'confirm' && this.confirmText) {
@@ -198,13 +186,13 @@ export default {
       }
       return this.$el.getAttribute(`data-${type}-text`)
     },
-    render () {
+    render() {
       this.$nextTick(() => {
         this.picker && this.picker.destroy()
         this.picker = new Picker(this.pickerOptions)
       })
     },
-    validate () {
+    validate() {
       if (!this.currentValue && this.required) {
         this.valid = false
         this.errors.required = '必填'
@@ -215,19 +203,19 @@ export default {
     }
   },
   watch: {
-    readonly (val) {
+    readonly(val) {
       if (val) {
         this.picker && this.picker.destroy()
       } else {
         this.render()
       }
     },
-    show (val) {
+    show(val) {
       if (val) {
         this.picker && this.picker.show(this.currentValue)
       }
     },
-    currentValue (val, oldVal) {
+    currentValue(val, oldVal) {
       this.$emit('input', val)
       if (!this.isFirstSetValue) {
         this.isFirstSetValue = true
@@ -237,19 +225,19 @@ export default {
       }
       this.validate()
     },
-    startDate () {
+    startDate() {
       this.render()
     },
-    endDate () {
+    endDate() {
       this.render()
     },
-    format (val) {
+    format(val) {
       if (this.currentValue) {
         this.currentValue = format(this.currentValue, val)
       }
       this.render()
     },
-    value (val) {
+    value(val) {
       // do not force render when renderInline is true
       if (this.picker && this.picker.config.renderInline) {
         this.currentValue = val
@@ -261,12 +249,12 @@ export default {
       }
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.picker && this.picker.destroy()
   }
 }
 </script>
 
-<style lang="less">
-@import './style.less';
+<style lang="scss">
+@import './style.scss';
 </style>

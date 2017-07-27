@@ -28,7 +28,7 @@
                             <flexbox-item class="xy-popup-picker-header-menu xy-popup-picker-header-menu-right" @click.native="onHide(true)">{{ confirmText || "完成" }}</flexbox-item>
                         </flexbox>
                     </div>
-                    <picker :data="data" v-model="tempValue" @on-change="onPickerChange" :columns="columns" :fixed-columns="fixedColumns" :container="'#xy-popup-picker-'+uuid" :column-width="columnWidth"></picker>
+                    <xy-picker :data="data" v-model="tempValue" @on-change="onPickerChange" :columns="columns" :fixed-columns="fixedColumns" :container="'#xy-popup-picker-'+uuid" :column-width="columnWidth"></xy-picker>
                 </div>
             </popup>
         </div>
@@ -42,8 +42,8 @@ import xyPicker from '../picker'
 import xyPopup from '../popup'
 import xyInlineDesc from '../inlineDesc'
 import { xyFlexbox, xyFlexboxItem } from '../flexbox'
-import array2string from '../filters/array2String'
-import value2name from '../filters/value2name'
+import array2string from '../assets/filters/array2String'
+import value2name from '../assets/filters/value2name'
 import uuidMixin from '../assets/mixins/uuid'
 import TransferDom from '../directives/transfer-dom'
 
