@@ -20,7 +20,7 @@ import xyTab from './tab/tab'
 import xyTabItem from './tab/tabItem'
 import xyTimeline from './timeline/timeline'
 import xyTimelineItem from './timeline/timelineItem'
-import xyImageUpload from './upload'
+import xyImageUpload from './upload' 
 // 指令
 import TransferDom from './directives/transfer-dom'
 
@@ -42,16 +42,16 @@ const install = function (Vue) {
     Vue.component(xyButtonTab.name, xyButtonTab);
     Vue.component(xyButtonTabItem.name, xyButtonTabItem);
     Vue.component(xyLoading.name, xyLoading);
-    Vue.component(xyScroller.name, xyScroller); 
+    Vue.component(xyScroller.name, xyScroller);
     Vue.component(xySwiper.name, xySwiper);
     Vue.component(xySwiperItem.name, xySwiperItem);
     Vue.component(xyTab.name, xyTab);
     Vue.component(xyTabItem.name, xyTabItem);
     Vue.component(xyTimeline.name, xyTimeline);
     Vue.component(xyTimelineItem.name, xyTimelineItem);
-    Vue.component(xyImageUpload.name, xyImageUpload);
+    Vue.component(xyImageUpload.name, xyImageUpload); 
 
-    Vue.directive('TransferDom',TransferDom);
+    Vue.directive('TransferDom', TransferDom);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -83,7 +83,7 @@ export {
     xyTabItem,
     xyTimeline,
     xyTimelineItem,
-    xyImageUpload,
+    xyImageUpload, 
 
     TransferDom
 };

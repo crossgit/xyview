@@ -3,11 +3,12 @@
         <input type="file" style="display: none;" id="img-upload" accept="image/*" @change="uploadImg($event)" />
     </div>
 </template>
-<script> 
+<script>
+// base64 必须,rotate 1,scale 2
 // exif 识别图片反正,IE10以下不支持 multiple
 import EXIF from 'exif-js'
 export default {
-    name: 'xyImageUpload',
+    name: 'xyImageUploadOne',
     props: {
         imgArr: {
             type: Array,
@@ -121,7 +122,7 @@ export default {
                         if (imgInfo.size / 1024000 > 1) {
                             _this.imgScale(base64, 4)
                         } else {
-                             _this.imgArr.push({ 'src': base64 }); 
+                            _this.imgStr.src = base64;
                         }
                     };
                 }
