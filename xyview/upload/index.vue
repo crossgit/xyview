@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="file" style="display: none;" id="img-upload" accept="image/*" @change="uploadImg($event)" />
+        <input type="file" id="img-upload" accept="image/*" @change="uploadImg($event)" />
     </div>
 </template>
 <script> 

@@ -12,7 +12,7 @@ import actionsheet from '@/actionsheet'
 import picker from '@/picker'
 import popup from '@/popup'
 import scoller from '@/scoller'
-import datetime from '@/datetime'
+import datetime from '@/datetime' 
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +28,6 @@ export default new Router({
     { path: '/picker', name: 'picker', component: picker },
     { path: '/popup', name: 'popup', component: popup },
     { path: '/scoller', name: 'scoller', component: scoller },
-    { path: '/datetime', name: 'datetime', component: datetime },
+    { path: '/datetime', name: 'datetime', component: datetime }, 
   ]
 })
