@@ -36,6 +36,7 @@ export default {
         { url: '/popup', title: 'popup' },
         { url: '/scoller', title: '滑动' },
         { url: '/datetime', title: '日期时间' },
+        { url: '/sticky', title: 'sticky' },
       ]
     }
   }

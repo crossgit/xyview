@@ -49,18 +49,18 @@ const popupDialog = function (option) {
   this.container.addEventListener('webkitTransitionEnd', this.containerHandler)
   this.container.addEventListener('transitionend', this.containerHandler)
 }
-
+// 事件-关闭
 popupDialog.prototype.onClickMask = function () {
   this.params.hideOnBlur && this.params.onClose()
 }
-
+// 事件-绑定
 popupDialog.prototype._bindEvents = function () {
   if (this.params.hideOnBlur) {
     this.mask.addEventListener('click', this.onClickMask.bind(this), false)
     this.mask.addEventListener('touchmove', e => e.preventDefault(), false)
   }
 }
-
+// 显示
 popupDialog.prototype.show = function () {
   if (this.params.showMask) {
     this.mask.classList.add('xy-popup-show')
@@ -70,7 +70,7 @@ popupDialog.prototype.show = function () {
   this.params.onOpen && this.params.onOpen(this)
   window.__$xyPopups[this.uuid] = 1
 }
-
+// 隐藏
 popupDialog.prototype.hide = function (shouldCallback = true) {
   this.container.classList.remove('xy-popup-show')
   if (!document.querySelector('.xy-popup-dialog.xy-popup-show')) {
@@ -83,7 +83,7 @@ popupDialog.prototype.hide = function (shouldCallback = true) {
   this.isShow = false
   delete window.__$xyPopups[this.uuid]
 }
-
+// 销毁
 popupDialog.prototype.destroy = function () {
   this.mask.dataset.uuid = this.mask.dataset.uuid.replace(new RegExp(`,${this.uuid}`, 'g'), '')
   if (!this.mask.dataset.uuid) {

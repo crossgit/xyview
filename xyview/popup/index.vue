@@ -1,6 +1,10 @@
 <template>
   <transition :name="`xy-popup-animate-${position}`">
     <div v-show="show && !initialShow" :style="styles" class="xy-popup-dialog" :class="[`xy-popup-${position}`, show ? 'xy-popup-show' : '']">
+      <div class="header" style="height:44px;background-color:#FFF; margin-bottom:5px; padding:6px;">
+        <input type="button" style="float:left" @click="onClose" value="取消">
+        <input type="button" style="float:right" @click="$emit('btnChoose')" value="确定">
+      </div>
       <slot></slot>
     </div>
   </transition>
@@ -37,7 +41,7 @@ export default {
     maxHeight: String,
     popupStyle: Object
   },
-  mounted () {
+  mounted() {
     this.$overflowScrollingList = document.querySelectorAll('.xy-fix-safari-overflow-scrolling')
     this.$nextTick(() => {
       const _this = this
@@ -45,11 +49,11 @@ export default {
         showMask: _this.showMask,
         container: _this.$el,
         hideOnBlur: _this.hideOnBlur,
-        onOpen () {
+        onOpen() {
           _this.fixSafariOverflowScrolling('auto')
           _this.show = true
         },
-        onClose () {
+        onClose() {
           _this.show = false
           if (window.__$xyPopups && Object.keys(window.__$xyPopups).length > 1) return
           if (document.querySelector('.xy-popup-dialog.xy-popup-mask-disabled')) return
@@ -69,15 +73,27 @@ export default {
     * https://github.com/airyland/xy/issues/311
     * https://benfrain.com/z-index-stacking-contexts-experimental-css-and-ios-safari/
     */
-    fixSafariOverflowScrolling (type) {
+    fixSafariOverflowScrolling(type) {
       if (!this.$overflowScrollingList.length) return
       // if (!/iphone/i.test(navigator.userAgent)) return
       for (let i = 0; i < this.$overflowScrollingList.length; i++) {
         this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
       }
+    },
+    onOpen() {
+      this.fixSafariOverflowScrolling('auto')
+      this.show = true
+    },
+    onClose() {
+      this.show = false
+      if (window.__$xyPopups && Object.keys(window.__$xyPopups).length > 1) return
+      if (document.querySelector('.xy-popup-dialog.xy-popup-mask-disabled')) return
+      setTimeout(() => {
+        this.fixSafariOverflowScrolling('touch')
+      }, 300)
     }
   },
-  data () {
+  data() {
     return {
       initialShow: true,
       hasFirstShow: false,
@@ -85,7 +101,7 @@ export default {
     }
   },
   computed: {
-    styles () {
+    styles() {
       const styles = {}
       if (!this.position || this.position === 'bottom' || this.position === 'top') {
         styles.height = this.height
@@ -107,10 +123,10 @@ export default {
     }
   },
   watch: {
-    value (val) {
+    value(val) {
       this.show = val
     },
-    show (val) {
+    show(val) {
       this.$emit('input', val)
       if (val) {
         this.popup && this.popup.show()
@@ -132,7 +148,7 @@ export default {
       }
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.popup.destroy()
     this.fixSafariOverflowScrolling('touch')
   }
@@ -155,6 +171,7 @@ export default {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
 .xy-popup-dialog.xy-popup-left {
   width: auto;
   height: 100%;
@@ -163,6 +180,7 @@ export default {
   bottom: auto;
   left: 0;
 }
+
 .xy-popup-dialog.xy-popup-right {
   width: auto;
   height: 100%;
@@ -171,6 +189,7 @@ export default {
   bottom: auto;
   left: auto;
 }
+
 .xy-popup-dialog.xy-popup-top {
   width: 100%;
   top: 0;
@@ -178,6 +197,7 @@ export default {
   bottom: auto;
   left: 0;
 }
+
 .xy-popup-mask {
   display: block;
   position: fixed;
@@ -187,27 +207,32 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  tap-highlight-color: rgba(0,0,0,0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
   z-index: -1;
   transition: opacity 400ms;
 }
+
 .xy-popup-mask.xy-popup-show {
   opacity: 1;
 }
 
-.xy-popup-animate-bottom-enter, .xy-popup-animate-bottom-leave-active {
+.xy-popup-animate-bottom-enter,
+.xy-popup-animate-bottom-leave-active {
   transform: translate3d(0, 100%, 0);
 }
 
-.xy-popup-animate-left-enter, .xy-popup-animate-left-leave-active {
+.xy-popup-animate-left-enter,
+.xy-popup-animate-left-leave-active {
   transform: translate3d(-100%, 0, 0);
 }
 
-.xy-popup-animate-right-enter, .xy-popup-animate-right-leave-active {
+.xy-popup-animate-right-enter,
+.xy-popup-animate-right-leave-active {
   transform: translate3d(100%, 0, 0);
 }
 
-.xy-popup-animate-top-enter, .xy-popup-animate-top-leave-active {
+.xy-popup-animate-top-enter,
+.xy-popup-animate-top-leave-active {
   transform: translate3d(0, -100%, 0);
 }
 </style>

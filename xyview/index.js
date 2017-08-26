@@ -14,13 +14,14 @@ import xyButtonTab from './buttonTab/buttonTab'
 import xyButtonTabItem from './buttonTab/buttonTabItem'
 import xyLoading from './loading'
 import xyScroller from './scroller'
+import xySticky from './sticky'
 import xySwiper from './swiper/swiper'
 import xySwiperItem from './swiper/swiperItem'
 import xyTab from './tab/tab'
 import xyTabItem from './tab/tabItem'
 import xyTimeline from './timeline/timeline'
 import xyTimelineItem from './timeline/timelineItem'
-import xyImageUpload from './upload' 
+import xyImageUpload from './upload'
 // 指令
 import TransferDom from './directives/transfer-dom'
 
@@ -44,12 +45,13 @@ const install = function (Vue) {
     Vue.component(xyLoading.name, xyLoading);
     Vue.component(xyScroller.name, xyScroller);
     Vue.component(xySwiper.name, xySwiper);
+    Vue.component(xySticky.name, xySticky);
     Vue.component(xySwiperItem.name, xySwiperItem);
     Vue.component(xyTab.name, xyTab);
     Vue.component(xyTabItem.name, xyTabItem);
     Vue.component(xyTimeline.name, xyTimeline);
     Vue.component(xyTimelineItem.name, xyTimelineItem);
-    Vue.component(xyImageUpload.name, xyImageUpload); 
+    Vue.component(xyImageUpload.name, xyImageUpload);
 
     Vue.directive('TransferDom', TransferDom);
 };
@@ -77,13 +79,14 @@ export {
     xyButtonTabItem,
     xyLoading,
     xyScroller,
+    xySticky,
     xySwiper,
     xySwiperItem,
     xyTab,
     xyTabItem,
     xyTimeline,
     xyTimelineItem,
-    xyImageUpload, 
+    xyImageUpload,
 
     TransferDom
 };
